@@ -4,6 +4,8 @@
 OpenGLWidget::OpenGLWidget()
 {
     qDebug() << __FUNCTION__;
+    m_rtri = 0.0f;
+    m_rquad = 0.0f;
 }
 
 void OpenGLWidget::initializeGL()
@@ -26,6 +28,8 @@ void OpenGLWidget::paintGL()
     glLoadIdentity();
 
     glTranslatef(-1.5f, 0.0f, -6.0f);
+    glRotatef(m_rtri, 0.0f, 1.0f, 0.0f);
+
     glBegin(GL_TRIANGLES);
     glColor3f(1.0f, 0.0f, 0.0f);
     glVertex3f(0.0f, 1.0f, 0.0f);
@@ -35,7 +39,11 @@ void OpenGLWidget::paintGL()
     glVertex3f(1.0f, -1.0f, 0.0f);
     glEnd();
 
-    glTranslatef(3.0f, 0.0f, 0.0f);
+    glLoadIdentity();
+
+    glTranslatef(1.5f, 0.0f, -6.0f);
+    //glTranslatef(3.0f, 0.0f, 0.0f);
+    glRotatef(m_rquad, 1.0f, 0.0f, 0.0f);
     glColor3f(0.5f, 0.5f, 1.0f);
     glBegin(GL_QUADS);
     glVertex3f(-1.0f, 1.0f, 0.0f);
@@ -43,6 +51,9 @@ void OpenGLWidget::paintGL()
     glVertex3f(1.0f, -1.0f, 0.0f);
     glVertex3f(-1.0f, -1.0f, 0.0f);
     glEnd();
+
+    m_rtri += 0.5f;
+    m_rquad -= 0.5f;
 }
 
 void OpenGLWidget::resizeGL(int w, int h)
