@@ -10,7 +10,7 @@ void OpenGLWidget::initializeGL()
 {
     qDebug() << __FUNCTION__;
     initializeGLFunctions();
-    glClearColor(0.0, 0.0, 0.0, 1.0);
+    glClearColor(0.0, 0.0, 0.0, 0.0);
     glShadeModel(GL_SMOOTH);
 
     glClearDepth(1.0);
@@ -27,12 +27,16 @@ void OpenGLWidget::paintGL()
 
     glTranslatef(-1.5f, 0.0f, -6.0f);
     glBegin(GL_TRIANGLES);
+    glColor3f(1.0f, 0.0f, 0.0f);
     glVertex3f(0.0f, 1.0f, 0.0f);
+    glColor3f(0.0f, 1.0f, 0.0f);
     glVertex3f(-1.0f, -1.0f, 0.0f);
+    glColor3f(0.0f, 0.0f, 1.0f);
     glVertex3f(1.0f, -1.0f, 0.0f);
     glEnd();
 
     glTranslatef(3.0f, 0.0f, 0.0f);
+    glColor3f(0.5f, 0.5f, 1.0f);
     glBegin(GL_QUADS);
     glVertex3f(-1.0f, 1.0f, 0.0f);
     glVertex3f(1.0f, 1.0f, 0.0f);
