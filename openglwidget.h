@@ -17,6 +17,7 @@ protected:
     void initializeGL();
     void paintGL();
     void resizeGL(int w, int h);
+
     void keyPressEvent(QKeyEvent *event);
 
 private:
@@ -28,6 +29,10 @@ private:
     bool m_Light;                                   //光源的开/关
 
     bool m_Fullscreen;                                //是否全屏显示
+    
+private:
+    GLfloat m_rtri;
+    GLfloat m_rquad;
 };
 
 #endif // OPENGLWIDGET_H
