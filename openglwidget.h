@@ -17,6 +17,10 @@ protected:
     void initializeGL();
     void paintGL();
     void resizeGL(int w, int h);
+    
+private:
+    GLfloat m_rtri;
+    GLfloat m_rquad;
 };
 
 #endif // OPENGLWIDGET_H
